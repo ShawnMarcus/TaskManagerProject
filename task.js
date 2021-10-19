@@ -38,6 +38,18 @@ while (userInput !== `CLOSE`){
 
     // This sets the value of the showTasks string variable back to an empty string
     showTasks = "";
+}
+    // checks to see if the user entered NEW
+    if (userInput === `NEW`){
+        // Prompts the user to enter a new task and stores their response
+       newTask = prompt(`Please enter the new task:`);
+
+       // This alerts the user that the new task has been added.
+       alert(`"${newTask}" has been added!`)
+
+       // Adds the user's entry as a new item at the end of the tasks array.
+       tasks.push(newTask);
+    }
 
     // this code displays the menu again.
     userInput = prompt(menu);
