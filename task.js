@@ -31,7 +31,8 @@ let removed;
 
 // This prompt displays the menu for the user to select an option. 
 // Setting the user's response to the userInput variable lets us capture the user's input to use throughout the file.
-let userInput = prompt(menu);
+// Using the toUpperCase method to convert the user's response to uppercase.
+let userInput = prompt(menu).toUpperCase();
 
 // Loops and continues to display as long as the user does not enter CLOSE. It will continue to prompt the user with the menu until the user enters CLOSE to end the Task Manager.
 while (userInput !== `CLOSE`){
@@ -92,7 +93,7 @@ while (userInput !== `CLOSE`){
             showTasks = ``;
         }
     // this code displays the menu again.
-    userInput = prompt(menu);
+    userInput = prompt(menu).toUpperCase();
 }
 
 // Alerts the user they have closed the Task Manager.
