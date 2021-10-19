@@ -86,6 +86,12 @@ while (userInput !== `CLOSE`){
             // Also, using \n to create a new line break.
             // Subtracting 1 from the user's entry so that it matches the index of the item that the user wants to remove from the tasks array.
             num = prompt(`Please enter a number to remove:\n${showTasks}`) - 1;
+
+            
+            while (Math.floor(num) !== num || num < 0 || num >= task.length || !num){
+                alert( `Not a valid entry`);
+                num = prompt(`Please enter a number to remove:\n${showTasks}`) - 1;
+            }
             
             // Removes the task/item the user selects (from the task array). Also, sets the task/item that was removed to the removed variable.
             // splice returns the value that is removed as an item in the array.
