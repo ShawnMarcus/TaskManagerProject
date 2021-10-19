@@ -12,8 +12,22 @@ What would you like to do? (Please enter one of the options below):
 
 `;
 
+const tasks = [
+    `Charge MacBook`,
+    `Master JavaScript`
+];
+
 // For displaying tasks to the user
 let showTasks = ``;
+
+// For storing value of a new task
+let newTasks;
+
+// For storing the number of the task to be removed
+let num;
+
+// For storing the value of the removed task
+let removed;
 
 // This prompt displays the menu for the user to select an option. 
 // Setting the user's response to the userInput variable lets us capture the user's input to use throughout the file.
@@ -50,7 +64,33 @@ while (userInput !== `CLOSE`){
        // Adds the user's entry as a new item at the end of the tasks array.
        tasks.push(newTask);
     }
+        // Checks to see if the user entered REMOVE
+        if (userInput === `REMOVE`){
+           
+            // Concatenates each task/item in the tasks arrary to the showTasks string variable. Also, sets/displays a number for each task.
+            // Starts at zero because we are using an array, and an array's index starts at 0.
+            for(i = 0; i < tasks.length; i++){
 
+                // Adding 1 to i (adding 1 to index) so the number will begin displaying at 1 instead of 0. also, using \n to create a new line (line break) to separate tasks.
+                showTasks += `${i + 1}. ${tasks[i]}\n`;
+                alert(showTasks);
+            }
+            
+            // Prompts the user to enter a number and stores that response to the num variable. 
+            // Also, using \n to create a new line break.
+            // Subtracting 1 from the user's entry so that it matches the index of the item that the user wants to remove from the tasks array.
+            num = prompt(`Please enter a number to remove:\n${showTasks}`) - 1;
+            
+            // Removes the task/item the user selects (from the task array). Also, sets the task/item that was removed to the removed variable.
+            // splice returns the value that is removed as an item in the array.
+            removed = tasks.splice(num, 1);
+
+            // alerts user with the task/item that has been removed (Using the index on the "removed" variable because splice returns the value that is removed as an item in an array.)
+            alert(`"${removed[0]}" has been removed`);
+            
+            // Sets the value of the showTasks string variable back to an empty string.
+            showTasks = ``;
+        }
     // this code displays the menu again.
     userInput = prompt(menu);
 }
